@@ -1,14 +1,14 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.querySelectorAll('.dropdown__btn');
-  const drops = document.querySelectorAll('.dropdown__container');
-  const arrows = document.querySelectorAll('.dropdown__btn-icon');
+  const btn = document.querySelectorAll('.header__dropdown-btn');
+  const drops = document.querySelectorAll('.header__dropdown-container');
+  const arrows = document.querySelectorAll('.header__dropdown-btn-icon');
   btn.forEach(el => {
     el.addEventListener('click', (e) => {
       let currentbtn = e.currentTarget;
-      let drop = currentbtn.closest('.header__item-bottom').querySelector('.dropdown__container');
-      let arrow = currentbtn.closest('.dropdown__btn').querySelector('.dropdown__btn-icon');
+      let drop = currentbtn.closest('.header__item-bottom').querySelector('.header__dropdown-container');
+      let arrow = currentbtn.closest('.header__dropdown-btn').querySelector('.header__dropdown-btn-icon');
       drops.forEach(el => {
         if (el !== drop) {
           el.classList.remove('dropdown__container--active');
@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       arrows.forEach(el => {
         if (el !== arrow) {
-          el.classList.remove('dropdown__btn-icon--active');
+          el.classList.remove('header__dropdown-btn-icon--active');
         }
       })
       drop.classList.toggle('dropdown__container--active');
-      arrow.classList.toggle('dropdown__btn-icon--active');
+      arrow.classList.toggle('header__dropdown-btn-icon--active');
     });
   });
   document.addEventListener('click', (e) => {
@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown__btn')) {
+    if (!e.target.closest('.header__dropdown-btn')) {
       arrows.forEach(el => {
-        el.classList.remove('dropdown__btn-icon--active');
+        el.classList.remove('header__dropdown-btn-icon--active');
       })
     }
   })
@@ -85,7 +85,7 @@ new Swiper('.gallery__swiper', {
       slidesPerGroup: 1,
       spaceBetween: 0,
     },
-    540: {
+    541: {
       spaceBetween: 33,
       slidesPerView: 2,
     },
@@ -104,17 +104,17 @@ new Swiper('.gallery__swiper', {
 
 
 
-let accordions = document.querySelectorAll('.accordion__item');
+let accordions = document.querySelectorAll('.catalog__accordion-item');
 let icon = document.querySelectorAll('.icon');
-let title = document.querySelectorAll('.accordion__title')
+let title = document.querySelectorAll('.catalog__accordion-title')
 accordions.forEach(el => {
   el.addEventListener('click', (e) => {
     let currentbtn1 = e.currentTarget;
-    let down = currentbtn1.closest('.accordion__item').querySelector('.icon');
-    let downtext = currentbtn1.closest('.accordion__item').querySelector('.accordion__title');
+    let down = currentbtn1.closest('.catalog__accordion-item').querySelector('.icon');
+    let downtext = currentbtn1.closest('.catalog__accordion-item').querySelector('.catalog__accordion-title');
     accordions.forEach(el => {
       if (el !== currentbtn1) {
-        el.classList.remove('accordion__item--active');
+        el.classList.remove('catalog__accordion-item--active');
       }
     });
     icon.forEach(el => {
@@ -124,12 +124,12 @@ accordions.forEach(el => {
     });
     title.forEach(el => {
       if (el !== downtext) {
-        el.classList.remove('accordion__title--active');
+        el.classList.remove('catalog__accordion-title--active');
       }
     });
     down.classList.toggle('icon--active');
-    downtext.classList.toggle('accordion__title--active');
-    currentbtn1.classList.toggle('accordion__item--active');
+    downtext.classList.toggle('catalog__accordion-title--active');
+    currentbtn1.classList.toggle('catalog__accordion-item--active');
   });
 });
 
@@ -140,13 +140,13 @@ tippy('.tooltip', {
 });
 
 
-tippy('.tooltip__2', {
+tippy('.tooltip-2', {
   content: 'Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции',
   theme: 'tomato2'
 });
 
 
-tippy('.tooltip__3', {
+tippy('.tooltip-3', {
   content: 'В стремлении повысить качество',
   theme: 'tomato3'
 });
@@ -160,7 +160,7 @@ const choices = new Choices(element, {
 
 
 
-const gallerybtns = document.querySelectorAll('.gallery-swiper__btn');
+const gallerybtns = document.querySelectorAll('.swiper__gallery-btn');
 const modal = document.querySelector('.modal');
 const modalexit = document.querySelector('.modal__exit');
 const scroll111 = document.querySelectorAll('.container');
@@ -282,7 +282,7 @@ new Swiper('.projects__swiper', {
 
 
 
-document.querySelectorAll('.accordion__open-btn').forEach(function (tabsBtn) {
+document.querySelectorAll('.catalog__accordion-open-btn').forEach(function (tabsBtn) {
   tabsBtn.addEventListener('click', function (e) {
     const path = e.currentTarget.dataset.path;
     document.querySelectorAll('.catalog__tab').forEach(function (tabsBtn) {
